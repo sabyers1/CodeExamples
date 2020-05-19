@@ -1,0 +1,95 @@
+<Quiz>
+    <AllowedAttempts>1</AllowedAttempts>
+    <ScoreLowered>0.30</ScoreLowered>
+    <StudentName />
+    <Question>
+        <QText>Where is called the &apos;Rooftop of the world&apos;?</QText>
+        <Choice item="1">Tibet</Choice>
+        <Choice item="2">Sears Tower</Choice>
+        <Choice item="3">Mt. McKinley</Choice>
+        <Choice item="4">Nepal</Choice>
+        <Answer>1</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>Where is the &apos;Holy Land&apos;?</QText>
+        <Choice item="1">Jerusalem</Choice>
+        <Choice item="2">Mathura</Choice>
+        <Choice item="3">Mecca</Choice>
+        <Choice item="4">Newark</Choice>
+        <Answer>1</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>Where is called &apos;The land of the rising sun&apos;?</QText>
+        <Choice item="1">Chicago</Choice>
+        <Choice item="2">Japan</Choice>
+        <Choice item="3">Tibet</Choice>
+        <Choice item="4">Puerto Rico</Choice>
+        <Answer>2</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>What is called &apos;The gift of the Nile&apos;?</QText>
+        <Choice item="1">Chicago</Choice>
+        <Choice item="2">Egypt</Choice>
+        <Choice item="3">Africa</Choice>
+        <Choice item="4">Alexandria</Choice>
+        <Answer>2</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>Where is the &apos;Land of Midnight&apos;?</QText>
+        <Choice item="1">Norway</Choice>
+        <Choice item="2">Japan</Choice>
+        <Choice item="3">Australia</Choice>
+        <Choice item="4">Antartica</Choice>
+        <Answer>1</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>What is called &apos;The land of Thunderbolt?</QText>
+        <Choice item="1">Wyomming</Choice>
+        <Choice item="2">Canada</Choice>
+        <Choice item="3">Arabia</Choice>
+        <Choice item="4">Bhutan</Choice>
+        <Answer>4</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>Where is the &apos;Windy City&apos;?</QText>
+        <Choice item="1">Tokoyo</Choice>
+        <Choice item="2">Taipai</Choice>
+        <Choice item="3">Chicago</Choice>
+        <Choice item="4">St Johns</Choice>
+        <Answer>3</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>Where is the &apos;Land of White Elephants&apos;?</QText>
+        <Choice item="1">Bangladesh</Choice>
+        <Choice item="2">Thailand</Choice>
+        <Choice item="3">India</Choice>
+        <Choice item="4">South Africa</Choice>
+        <Answer>2</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>Where is the &apos;City of Seven Hills&apos;?</QText>
+        <Choice item="1">Rome</Choice>
+        <Choice item="2">Nilgiri Hills</Choice>
+        <Choice item="3">Tibet</Choice>
+        <Choice item="4">Pittsburgh</Choice>
+        <Answer>3</Answer>
+        <Score>10</Score>
+    </Question>
+    <Question>
+        <QText>What is called &apos;The Dark Contenient&apos;?</QText>
+        <Choice item="1">Asia</Choice>
+        <Choice item="2">Australia</Choice>
+        <Choice item="3">Africa</Choice>
+        <Choice item="4">South America</Choice>
+        <Answer>3</Answer>
+        <Score>10</Score>
+    </Question>
+</Quiz>
