@@ -1,4 +1,5 @@
 # NMake version of make
+# USAGE: nmake /f Makefile2 {target}
 
 all: quizapp.exe makequizinfo.exe
 
