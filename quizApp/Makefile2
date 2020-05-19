@@ -1,0 +1,16 @@
+# NMake version of make
+
+all: quizapp.exe makequizinfo.exe
+
+#removed $(cc) and $(link) replaced with cl.exe /c
+.cpp.obj:
+  cl.exe /c $(cdebug) $(cflags) $(cvars) $*.cpp
+
+quizapp.exe: quizapp.obj tinystr.obj tinyxml.obj tinyxmlerror.obj tinyxmlparser.obj
+  cl.exe $(ldebug) $(conflags) -o:quizapp.exe $** $(conlibs)
+
+makequizinfo.exe: makequizinfo.obj tinystr.obj tinyxml.obj tinyxmlerror.obj tinyxmlparser.obj
+  cl.exe $(ldebug) $(conflags) -o:makequizinfo.exe $** $(conlibs)
+
+clean:
+    del *.obj
