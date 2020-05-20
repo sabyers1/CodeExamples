@@ -5,7 +5,7 @@ using namespace std;
 #include "tinyxml.h"
 const char *demoQuiz =
     "<Quiz>\n"
-        "<AllowedAttempts>1</AllowedAttempts>\n"
+        "<AllowedAttempts>2</AllowedAttempts>\n"
         "<ScoreLowered>0.30</ScoreLowered>\n"
         "<StudentName></StudentName>\n"
         "<Question>\n"
