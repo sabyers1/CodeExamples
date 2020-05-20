@@ -1,17 +1,27 @@
 # NMake version of make
 # USAGE: nmake /f Makefile2 {target}
 
-all: quizapp.exe makequizinfo.exe
+cpp = cl.exe
+cvars = /c
+cflags = /EHsc
+conflags = /EHsc
+# compile only, Exception handing
+conlibs = tinyxml.lib
+
+all: quizapp.exe makequizinfo.exe $(conlibs)
 
 #removed $(cc) and $(link) replaced with cl.exe /c
 .cpp.obj:
-  cl.exe /c $(cdebug) $(cflags) $(cvars) $*.cpp
+  $(cpp) $(cdebug) $(cflags) $(cvars) $*.cpp
 
-quizapp.exe: quizapp.obj tinystr.obj tinyxml.obj tinyxmlerror.obj tinyxmlparser.obj
-  cl.exe $(ldebug) $(conflags) -o:quizapp.exe $** $(conlibs)
+tinyxml.lib: tinystr.obj tinyxml.obj tinyxmlerror.obj tinyxmlparser.obj
+  lib.exe /OUT:tinyxml.lib $**
 
-makequizinfo.exe: makequizinfo.obj tinystr.obj tinyxml.obj tinyxmlerror.obj tinyxmlparser.obj
-  cl.exe $(ldebug) $(conflags) -o:makequizinfo.exe $** $(conlibs)
+quizapp.exe: quizapp.obj 
+  $(cpp) $(ldebug) $(conflags) $** $(conlibs)
+
+makequizinfo.exe: makequizinfo.obj 
+  $(cpp) $(ldebug) $(conflags) $** $(conlibs)
 
 clean:
-    del *.obj
+    del *.obj *.exe
