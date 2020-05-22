@@ -7,8 +7,8 @@
 
 double mean(const std::vector<int>& numbers, const std::vector<int>& weights)
 {
-    int total = 0;
-    int totalWeights = 0;
+    double total = 0.0;
+    double totalWeights = 0.0;
 
     if(numbers.size()!= weights.size())
         throw std::invalid_argument("Argument exception.");
@@ -21,7 +21,7 @@ double mean(const std::vector<int>& numbers, const std::vector<int>& weights)
     } catch (std::exception e){
         throw std::invalid_argument("Argument exception.");
     }
-    if(totalWeights==0)
+    if(totalWeights==0.0)
         throw std::invalid_argument("Argument exception.");
 
     return total / totalWeights;
