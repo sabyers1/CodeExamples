@@ -44,10 +44,10 @@
 		{
 			"type": "shell",
 			"label": "C/C++: cl build active file",
-			"command":"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.25.28610\\bin\\Hostx64\\x64\\cl.exe",
+			"command":"C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/cl.exe",
 			"args": [
 				"${file}",
-				"-IC:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.25.28610\\include"
+				"-I'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.25.28610\\include'"
 				"${workspaceFolder}/bin/${fileBasenameNoExension}"
 			],
 			"options": {
