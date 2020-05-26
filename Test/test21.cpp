@@ -26,8 +26,7 @@ class Egg
 {
 private:
     int m_eggCnt;  // instance counter to prevent multiple hatches
-    std::function <Bird* ()> m_createBird;
-    Egg *m_e; // pointer to e so can be destoyed later.
+    std::function <Bird* ()> m_createBird;  // pointer to function to create bird from egg.
 
 public:
     Egg(std::function<Bird* ()> createBird)  // need to have function target so not bad call
@@ -35,10 +34,6 @@ public:
         m_eggCnt = 0;
         m_createBird = createBird; // redirect/assign to exterior class function
         cout << "Constructed egg." << endl;
-    }
-    ~Egg(){
-        cout << "Destroying egg."<< endl;
-        delete m_e;
     }
 
     Bird* hatch()
@@ -91,9 +86,11 @@ int main()
     } catch (exception e){
         cout << "Unexpected error: " << e.what() << endl;
     }
-    cout << "All done!" << endl;
 
-    delete egg1;
+    Egg* egg2 = chicken->lay();
+    Bird *childChicken3 = egg2->hatch();
+
+    cout << "All done!" << endl;
 
     return 0;
 }
