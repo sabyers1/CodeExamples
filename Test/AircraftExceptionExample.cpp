@@ -14,6 +14,7 @@
 #include <iostream>
 #include <iostream>
 #include <exception>
+
 using namespace std;
 enum AircraftError
 {
@@ -34,27 +35,60 @@ private:
   const char* m_ErrMessage;
   AircraftError m_ErrorType;
 };
+
+class AircraftEx_NoRunway : public AircraftException
+{
+public:
+    AircraftEx_NoRunway (const char* errMessage, AircraftError errorType):
+        AircraftException(errMessage, errorType){}
+};
+
+class AircraftEx_WingOnFire : public AircraftException
+{
+public:
+    AircraftEx_WingOnFire (const char* errMessage, AircraftError errorType):
+        AircraftException(errMessage, errorType){}
+};
+
+class AircraftEx_WingBroken : public AircraftException
+{
+public:
+    AircraftEx_WingBroken (const char* errMessage, AircraftError errorType):
+        AircraftException(errMessage, errorType){}
+};
+
 int main() {
   try
   {
-    throw AircraftException("crashed", AircraftError::Crashed);
-  }
-  catch (AircraftException& e)
+    srand(time(nullptr));  // seed random generator
+    int choice = rand() % 4;
+    switch (choice){
+        case 0:
+            throw AircraftEx_WingBroken("Wing is broken.",AircraftError::WingsOnFire);
+            break;
+        case 1:
+            throw AircraftEx_WingOnFire("Wings are on fire.",AircraftError::WingsOnFire);
+            break;
+        case 2:
+            throw AircraftEx_NoRunway("Blocked airstripe",AircraftError::NoRunway);
+            break;
+        case 3:
+        default:
+            throw AircraftException("crashed", AircraftError::Crashed);
+            break;
+    }
+  } catch (AircraftEx_NoRunway e){
+        cout << e.what() << endl;
+        cout << "Call ATC to get clear runway." << endl;
+  } catch (AircraftEx_WingOnFire e){
+        cout << e.what() << endl;
+        cout << "Activate fire extinguishers." << endl;
+  } catch (AircraftEx_WingBroken e){
+        cout << e.what() << endl;
+        cout << "Reduce altitude slowly." << endl;
+  } catch (AircraftException& e)
   {
-    cout << e.what() << '\n';
-    if (e.GetError() == AircraftError::WingsOnFire)
-    {
-      // Fire extinguishers
-    }
-    else if (e.GetError() == AircraftError::WingBroken)
-    {
-      // Cannot do anything in flight - pray and rethrow
-    }
-    else if(e.GetError()== AircraftError::NoRunway)
-    {
-      //Call Air Traffic control to clear up runway
-    }
-    else
+    cout << e.what() << endl;
     {
       // We have crashed - throw 
       throw;
