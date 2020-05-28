@@ -77,13 +77,13 @@ int main() {
             throw AircraftException("crashed", AircraftError::Crashed);
             break;
     }
-  } catch (AircraftEx_NoRunway& e){ // make sure e is reference &, so don't slice
+  } catch (const AircraftEx_NoRunway& e){ // make sure e is reference &, so don't slice
         cout << e.what() << endl;
         cout << "Call ATC to get clear runway." << endl;
-  } catch (AircraftEx_WingOnFire& e){
+  } catch (const AircraftEx_WingOnFire& e){
         cout << e.what() << endl;
         cout << "Activate fire extinguishers." << endl;
-  } catch (AircraftEx_WingBroken& e){
+  } catch (const AircraftEx_WingBroken& e){
         cout << e.what() << endl;
         cout << "Reduce altitude slowly." << endl;
   } catch (AircraftException& e)
