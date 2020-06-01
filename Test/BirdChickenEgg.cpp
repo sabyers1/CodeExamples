@@ -26,7 +26,7 @@ class Egg
 {
 private:
     int m_eggCnt;  // instance counter to prevent multiple hatches
-    std::function <Bird* ()> m_createBird;  // pointer to function to create bird from egg.
+    std::function <Bird* () > m_createBird;  // pointer to function to create bird from egg.
 
 public:
     Egg(std::function<Bird* ()> createBird)  // need to have function target so not bad call
@@ -47,7 +47,8 @@ public:
 
 };
 
-Bird *createChicken();
+
+Bird* createChicken();
 
 class Chicken : public Bird
 { 
@@ -66,15 +67,38 @@ public:
     
 };
 
+Bird* createGoose();
+
+class Goose: public Bird
+{
+public:
+    Goose(){
+        cout << "Constructing goose." << endl;
+    }
+
+    Egg* lay()
+    { // laying creates an egg
+        cout << "Laying goose egg." << endl;
+        return new Egg(::createGoose);
+    }
+};
+
 Bird *createChicken(){
     cout << "::createChicken()"<< endl;
     return new Chicken();
 }
 
+Bird *createGoose(){
+    cout << "::createGoose()"<< endl;
+    return new Goose();
+}
+
+
 #ifndef RunTests
 int main()
 {
     Bird* chicken = new Chicken();
+    Bird* goose = new Goose();
 
     Egg* egg1 = chicken->lay();
     Bird* childChicken1 = egg1->hatch();
@@ -89,6 +113,9 @@ int main()
 
     Egg* egg2 = chicken->lay();
     Bird *childChicken3 = egg2->hatch();
+
+    Egg* egg3 = goose->lay();
+    Bird* childGoose = egg3->hatch();
 
     cout << "All done!" << endl;
 
