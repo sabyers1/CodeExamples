@@ -86,17 +86,19 @@ void dfs2(int u, int rep){ //Depth First Search 2
      std::cout << "Size of airports: " << n << std::endl;
      std::map<std::string,int> mp; //could be an unordered map for less complexity
 
+    // Process to create map of airport strings tags associated with a node id
      for(int i=0; i<n; i++){
         mp[airports[i]]=i;
         std::cout << airports[i] << " idx: ["<< std::setw(2) << i << "]" << std::endl;
      }
-
+    // Create a adjacency list of the graph node edges based upon the routes deciphered from
+    // airport tags to respective node ids
      for(std::vector<std::string> edge: routes){
          adj[mp[edge[0]]].push_back(mp[edge[1]]);  //# store the id in the adjacency list
          std::cout << edge[0] << "(" << std::setw(2) << mp[edge[0]] << ") adj to > " << edge[1] << "(" << std::setw(2) << mp[edge[1]]<< ")" << std::endl;
      }
 
-
+    // Swap i,j to get the reverse (transposed) direction of the adjacency list
     for(int i=0; i<n; i++){
         for(int j : adj[i]){
             reverseAdj[j].push_back(i);
@@ -106,18 +108,21 @@ void dfs2(int u, int rep){ //Depth First Search 2
         }
     }
 
+    // First pass of depth first search as part of Korasaju's algo
     for(int i=0; i<n; i++){
         if(!visited[i])
             dfs1(i);
     }
 
+    // Re-examine items from the stack, as part of Korasaju's algo
+    // which creates a compressed graph
     while(st.size()>0){
         int u=st.top();
         st.pop();
         if(!vis2[u])
             dfs2(u,u);
     }
-    
+    // calculate the degree[n] of each node
     for(int i=0; i<n; i++)
         for (int j : adj[i]){
             if(who[i]!=who[j]){
